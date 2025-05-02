@@ -17,5 +17,8 @@ export default defineConfig({
         pattern: 'src/content/experience.md'
       }
     ]
-  }
+  },
+  site: 'https://Rohit-Medpalli123.github.io',
+  base: '/PersonalWebsite',
+  output: 'static'
 });
