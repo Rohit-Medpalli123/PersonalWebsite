@@ -1,0 +1,99 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="SDET Portfolio - Software Testing & Development">
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <ViewTransitions />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
+    <script>
+      document.addEventListener('astro:page-load', () => {
+        AOS.init({
+          duration: 800,
+          once: true,
+          offset: 100,
+        });
+      });
+    </script>
+  </head>
+  <body class="bg-gray-900 text-gray-100 font-mono relative">
+    <div id="particles-js" class="fixed inset-0 z-0 pointer-events-none"></div>
+    <script>
+      document.addEventListener('astro:page-load', () => {
+        particlesJS('particles-js', {
+          particles: {
+            number: { value: 80, density: { enable: true, value_area: 800 } },
+            color: { value: '#3182ce' },
+            shape: { type: 'circle' },
+            opacity: { value: 0.5, random: false },
+            size: { value: 3, random: true },
+            line_linked: {
+              enable: true,
+              distance: 150,
+              color: '#3182ce',
+              opacity: 0.2,
+              width: 1
+            },
+            move: {
+              enable: true,
+              speed: 2,
+              direction: 'none',
+              random: false,
+              straight: false,
+              out_mode: 'out',
+              bounce: false
+            }
+          },
+          interactivity: {
+            detect_on: 'window',
+            events: {
+              onhover: { enable: true, mode: 'repulse' },
+              resize: true
+            },
+            modes: {
+              repulse: { distance: 100, duration: 0.4 }
+            }
+          },
+          retina_detect: true
+        });
+      });
+    </script>
+    <nav class="fixed w-full bg-gray-800 border-b border-gray-700 z-50">
+      <div class="container mx-auto px-4 py-3">
+        <div class="flex justify-between items-center">
+          <a href="/" class="text-xl font-bold hover:text-cyan-400 transition-colors">
+            <span class="text-cyan-400">&gt;</span> Portfolio
+          </a>
+          <div class="space-x-6">
+            <a href="/" class="hover:text-cyan-400 transition-colors">Home</a>
+            <a href="/projects" class="hover:text-cyan-400 transition-colors">Projects</a>
+            <a href="/blog" class="hover:text-cyan-400 transition-colors">Blog</a>
+            <a href="/contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main class="pt-16">
+      <slot />
+    </main>
+    <footer class="bg-gray-800 mt-20 py-6 text-center">
+      <p class="text-gray-400">© {new Date().getFullYear()} • Built with Astro</p>
+    </footer>
+  </body>
+</html>

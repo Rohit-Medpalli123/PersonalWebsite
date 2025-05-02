@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+// Get all blog posts and sort by date (newest first)
+const blogPosts = await getCollection('blog');
+const sortedPosts = blogPosts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+---
+
+<Layout title="SDET Portfolio - Blog">
+  <div class="container mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-12 text-center">
+      <span class="text-cyan-400">&gt;</span> Tech Insights
+    </h1>
+    
+    <div class="max-w-4xl mx-auto space-y-8">
+      {sortedPosts.length === 0 ? (
+        <div class="text-center py-10">
+          <h2 class="text-2xl font-bold">No blog posts found</h2>
+          <p class="text-gray-400 mt-2">Check back soon for new content!</p>
+        </div>
+      ) : (
+        sortedPosts.map((post) => (
+          <article class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-colors">
+            <div class="mb-4">
+              <span class="text-cyan-400 text-sm">{new Date(post.data.date).toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'})}</span>
+              <h2 class="text-2xl font-bold mt-2">
+                {post.data.title}
+              </h2>
+            </div>
+            <p class="text-gray-400 mb-4">
+              {post.data.excerpt || post.data.title}
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              {post.data.tags && post.data.tags.map((tag) => (
+                <span class="bg-cyan-900 text-cyan-300 px-3 py-1 rounded-full text-sm">{tag}</span>
+              ))}
+            </div>
+            <a href={`/blog/${post.slug}`} class="text-cyan-400 hover:text-cyan-300 inline-flex items-center">
+              Read More →
+            </a>
+          </article>
+        ))
+      )}
+    </div>
+  </div>
+</Layout>

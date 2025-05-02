@@ -1,0 +1,142 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Hardcoded experience data
+const experiences = [
+  {
+    company: "Current Company",
+    role: "Senior SDET",
+    period: "2023 - Present",
+    description: `- Led end-to-end test automation initiatives for web and mobile applications
+- Implemented CI/CD pipelines reducing deployment time by 40%
+- Mentored junior team members in test automation best practices`
+  },
+  {
+    company: "Previous Company",
+    role: "SDET",
+    period: "2021 - 2023",
+    description: `- Developed and maintained automated test frameworks using Selenium and Appium
+- Improved test coverage by 60% through strategic test automation
+- Implemented performance testing solutions using JMeter`
+  },
+  {
+    company: "First Company",
+    role: "QA Engineer",
+    period: "2019 - 2021",
+    description: `- Conducted manual and automated testing for web applications
+- Created test plans and test cases for new features
+- Collaborated with developers to improve product quality`
+  }
+]
+
+// Define placeholder images for Iron Man theme
+const ironManImages = [
+  '/images/placeholder-ironman-1.svg',
+  '/images/placeholder-ironman-2.svg',
+  '/images/placeholder-ironman-3.svg',
+];
+---
+
+<Layout title="Experience - SDET Portfolio">
+  <div class="container mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-12 text-center">
+      <span class="text-cyan-400">&gt;</span> Career Timeline
+    </h1>
+    
+    <div class="relative max-w-4xl mx-auto">
+      <!-- Vertical line -->
+      <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-cyan-500 to-blue-600"></div>
+      
+      {experiences.map((experience, index) => (
+        <div class={`flex items-center mb-24 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+          <!-- Timeline node -->
+          <div class="w-1/2 flex justify-center">
+            <div class="ironman-container group relative">
+              <div class="ironman-circle w-48 h-48 rounded-full overflow-hidden border-4 border-cyan-400 transition-all duration-300 group-hover:border-red-500 group-hover:glow">
+                <img 
+                  src={ironManImages[index % ironManImages.length]} 
+                  alt={`${experience.role} at ${experience.company}`}
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div class="absolute inset-0 bg-gradient-radial from-transparent to-cyan-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
+              <div class="absolute -inset-2 bg-cyan-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
+            </div>
+          </div>
+          
+          <!-- Content -->
+          <div class={`w-1/2 ${index % 2 === 0 ? 'pl-12' : 'pr-12'}`}>
+            <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-cyan-400 transition-colors">
+              <div class="mb-2">
+                <h3 class="text-xl font-bold text-white">{experience.role}</h3>
+                <h4 class="text-cyan-400">{experience.company}</h4>
+                <p class="text-gray-400 text-sm">{experience.period}</p>
+              </div>
+              <div class="text-gray-300">
+                {experience.description.split('\n').map((item) => (
+                  item.trim() && <p class="mb-2">{item.replace('- ', '• ')}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+      
+      <!-- Engineering Education Node -->
+      <div class="flex items-center">
+        <div class="w-1/2 flex justify-center">
+          <div class="ironman-container group relative">
+            <div class="ironman-circle w-48 h-48 rounded-full overflow-hidden border-4 border-cyan-400 transition-all duration-300 group-hover:border-red-500 group-hover:glow">
+              <img 
+                src="/images/placeholder-ironman-education.svg" 
+                alt="Engineering Education"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+            </div>
+            <div class="absolute inset-0 bg-gradient-radial from-transparent to-cyan-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
+            <div class="absolute -inset-2 bg-cyan-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
+          </div>
+        </div>
+        
+        <div class="w-1/2 pl-12">
+          <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-cyan-400 transition-colors">
+            <div class="mb-2">
+              <h3 class="text-xl font-bold text-white">BE ENGINEERING</h3>
+              <h4 class="text-cyan-400">Computer Science</h4>
+              <p class="text-gray-400 text-sm">2015 - 2019</p>
+            </div>
+            <div class="text-gray-300">
+              <p class="mb-2">• Bachelor's degree in Computer Science and Engineering</p>
+              <p class="mb-2">• Specialized in software testing and quality assurance</p>
+              <p class="mb-2">• Graduated with honors</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* Iron Man glow effect */
+  .ironman-circle.glow {
+    box-shadow: 0 0 15px 5px rgba(30, 144, 255, 0.7), 
+                0 0 30px 10px rgba(30, 64, 255, 0.5);
+  }
+  
+  /* Pulse animation */
+  @keyframes pulse {
+    0% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0.4; }
+  }
+  
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  /* Radial gradient for hover effect */
+  .bg-gradient-radial {
+    background-image: radial-gradient(var(--tw-gradient-stops));
+  }
+</style>
