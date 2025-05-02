@@ -54,3 +54,8 @@ Externalize test data using JSON or Excel files. This makes tests more maintaina
 Use tools like ExtentReports or Allure for detailed test reporting. Good reports help in quick problem identification.
 
 Remember: The key to successful test automation is writing maintainable, reliable, and scalable tests.
+
+## 5. Use Proper Exception Handling
+
+Implement proper exception handling to handle unexpected errors and improve test stability.
+
