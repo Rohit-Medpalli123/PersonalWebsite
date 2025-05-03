@@ -1,5 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getEntry } from 'astro:content';
+import { ironManImages } from './experience.astro';
+
+const experienceEntry = await getEntry('experience', 'experience');
+const { experiences, education } = experienceEntry.data;
+
+const technicalEntry = await getEntry('skills', 'technical');
+const { title, skills } = technicalEntry.data;
 ---
 
 <Layout title="SDET Portfolio - Home">
@@ -17,16 +25,16 @@ import Layout from '../layouts/Layout.astro';
           Specialized in creating robust test frameworks and ensuring software reliability.
         </p>
         <div class="flex justify-center space-x-4">
-          <a href="/RohitResumeSDET.pdf" class="bg-red-600 hover:bg-red-700 px-6 py-3 rounded-lg transition-colors flex items-center space-x-2" download>
+          <a href="/PersonalWebsite/RohitResumeSDET.pdf" class="bg-red-600 hover:bg-red-700 px-6 py-3 rounded-lg transition-colors flex items-center space-x-2" download>
             <span>Get Resume</span>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
             </svg>
           </a>
-          <a href="/projects" class="bg-cyan-600 hover:bg-cyan-700 px-6 py-3 rounded-lg transition-colors">
+          <a href="/PersonalWebsite/projects" class="bg-cyan-600 hover:bg-cyan-700 px-6 py-3 rounded-lg transition-colors">
             View Projects
           </a>
-          <a href="/contact" class="border border-cyan-600 hover:bg-cyan-600/20 px-6 py-3 rounded-lg transition-colors">
+          <a href="/PersonalWebsite/contact" class="border border-cyan-600 hover:bg-cyan-600/20 px-6 py-3 rounded-lg transition-colors">
             Contact Me
           </a>
         </div>
@@ -34,203 +42,121 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <!-- Skills Section -->
-    <section class="py-16">
-      <h2 class="text-3xl font-bold mb-8 text-center">
-        <span class="text-cyan-400">#</span> Technical Arsenal
+    <section class="py-16 relative">
+      <h2 class="text-3xl font-bold mb-12 text-center relative">
+        <span class="text-cyan-400 inline-block transform hover:scale-110 transition-transform">#</span> {title}
+        <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-600"></div>
       </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-cyan-400 transition-colors">
-          <h3 class="text-xl font-bold mb-4 text-cyan-400">Testing & Automation</h3>
-          <ul class="space-y-2 text-gray-300">
-            <li>• Selenium WebDriver</li>
-            <li>• Appium</li>
-            <li>• TestNG / JUnit</li>
-            <li>• REST API Testing</li>
-            <li>• JMeter Performance Testing</li>
-          </ul>
-        </div>
-        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-cyan-400 transition-colors">
-          <h3 class="text-xl font-bold mb-4 text-cyan-400">Development</h3>
-          <ul class="space-y-2 text-gray-300">
-            <li>• Java</li>
-            <li>• Python</li>
-            <li>• JavaScript</li>
-            <li>• SQL & MongoDB</li>
-            <li>• Git & Jenkins</li>
-          </ul>
-        </div>
-        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-cyan-400 transition-colors">
-          <h3 class="text-xl font-bold mb-4 text-cyan-400">Investigation Tools</h3>
-          <ul class="space-y-2 text-gray-300">
-            <li>• Chrome DevTools</li>
-            <li>• Postman</li>
-            <li>• JMeter</li>
-            <li>• Docker</li>
-            <li>• CI/CD Pipelines</li>
-          </ul>
-        </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative" data-aos="fade-up" data-aos-delay="200">
+        {skills.map((skill) => (
+          <div class="group relative">
+            <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl blur opacity-25 group-hover:opacity-40 transition-opacity"></div>
+            <div class="relative bg-gray-900 p-8 rounded-xl border border-gray-800 hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-500/10">
+              <div class="flex items-center mb-6">
+                <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center mr-4">
+                  <span class="text-2xl text-white">{skill.category === 'Testing & Automation' ? '🔍' : skill.category === 'Development' ? '💻' : '🛠'}</span>
+                </div>
+                <h3 class="text-xl font-bold text-cyan-400">{skill.category}</h3>
+              </div>
+              <ul class="space-y-3">
+                {skill.items.map((item) => (
+                  <li class="flex items-center text-gray-300 group-hover:text-white transition-colors">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400 mr-3 group-hover:bg-cyan-300 transition-colors"></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
 
     <!-- Latest Projects Section -->
     <section class="py-16">
-      <h2 class="text-3xl font-bold mb-8 text-center">
-        <span class="text-cyan-400">#</span> Latest Investigations
+      <h2 class="text-3xl font-bold mb-12 text-center relative">
+        <span class="text-cyan-400 inline-block transform hover:scale-110 transition-transform">#</span> Latest Investigations
+        <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-600"></div>
       </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-aos="fade-up" data-aos-delay="200">
-        <!-- Project cards will be dynamically populated -->
-        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-cyan-400 transition-colors">
-          <h3 class="text-xl font-bold mb-2">Test Automation Framework</h3>
-          <p class="text-gray-400 mb-4">A robust Selenium-based framework for end-to-end testing</p>
-          <a href="/projects" class="text-cyan-400 hover:text-cyan-300">Learn more →</a>
-        </div>
-        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-cyan-400 transition-colors">
-          <h3 class="text-xl font-bold mb-2">API Testing Suite</h3>
-          <p class="text-gray-400 mb-4">Comprehensive API testing solution using RestAssured</p>
-          <a href="/projects" class="text-cyan-400 hover:text-cyan-300">Learn more →</a>
-        </div>
+      <div class="max-w-3xl mx-auto text-center">
+        <a href="/PersonalWebsite/projects" class="block group">
+          <div class="bg-gray-900 p-8 rounded-xl border border-gray-800 group-hover:border-cyan-400 transition-all duration-300 transform group-hover:-translate-y-1 group-hover:shadow-lg group-hover:shadow-cyan-500/10">
+            <p class="text-xl text-gray-300 mb-6">Discover my portfolio of innovative test automation frameworks, performance testing solutions, and comprehensive quality assurance projects that demonstrate my expertise in software testing.</p>
+            <div class="flex items-center justify-center space-x-8 text-cyan-400 mb-6">
+              <span class="text-3xl">🔬</span>
+              <span class="text-3xl">⚡</span>
+              <span class="text-3xl">🛠️</span>
+            </div>
+            <p class="text-lg text-cyan-400 hover:text-cyan-300 transition-colors">Click to explore projects →</p>
+          </div>
+        </a>
       </div>
     </section>
 
     <!-- Iron Man Timeline Section -->
     <section class="py-16 relative">
-      <h2 class="text-3xl font-bold mb-12 text-center">
-        <span class="text-cyan-400">#</span> Career Timeline
+      <h2 class="text-3xl font-bold mb-12 text-center relative">
+        <span class="text-cyan-400 inline-block transform hover:scale-110 transition-transform">#</span> Career Timeline
+        <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-600"></div>
       </h2>
       
       <div class="relative max-w-4xl mx-auto">
         <!-- Vertical line -->
         <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-cyan-500 to-blue-600"></div>
         
-        {/* Senior SDET */}
-        <div class="flex items-center mb-24 flex-row" data-aos="fade-right">
-          <!-- Timeline node -->
-          <div class="w-1/2 flex justify-center">
-            <div class="ironman-container group relative">
-              <div class="ironman-circle w-48 h-48 rounded-full overflow-hidden border-4 border-cyan-400 transition-all duration-300 group-hover:border-red-500 group-hover:glow">
-                <img 
-                  src="/images/placeholder-ironman-1.svg" 
-                  alt="Senior SDET at Current Company"
-                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
+        {/* Experience Timeline */}
+        {experiences.map((experience, index) => (
+          <div class={`flex items-center mb-24 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`} data-aos={index % 2 === 0 ? 'fade-right' : 'fade-left'}>
+            {/* Timeline node */}
+            <div class="w-1/2 flex justify-center">
+              <div class="ironman-container group relative">
+                <div class="ironman-card w-64 h-80 rounded-xl overflow-hidden border-4 border-cyan-400 transition-all duration-300 group-hover:border-red-500 group-hover:glow">
+                  <img 
+                    src={`/PersonalWebsite${ironManImages[experiences.length - 1 - index]}`}
+                    alt={`${experience.role} at ${experience.company}`}
+                    class="w-full h-full object-contain bg-gray-900 p-2 transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div class="absolute inset-0 bg-gradient-radial from-transparent to-cyan-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                <div class="absolute -inset-2 bg-cyan-500/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
               </div>
-              <div class="absolute inset-0 bg-gradient-radial from-transparent to-cyan-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
-              <div class="absolute -inset-2 bg-cyan-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
             </div>
-          </div>
-          
-          <!-- Content -->
-          <div class="w-1/2 pl-12">
-            <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-cyan-400 transition-colors">
-              <div class="mb-2">
-                <h3 class="text-xl font-bold text-white">Senior SDET</h3>
-                <h4 class="text-cyan-400">Current Company</h4>
-                <p class="text-gray-400 text-sm">2023 - Present</p>
-              </div>
-              <div class="text-gray-300">
-                <p class="mb-2">• Led end-to-end test automation initiatives for web and mobile applications</p>
-                <p class="mb-2">• Implemented CI/CD pipelines reducing deployment time by 40%</p>
-                <p class="mb-2">• Mentored junior team members in test automation best practices</p>
+            
+            {/* Content */}
+            <div class={`w-1/2 ${index % 2 === 0 ? 'pl-12' : 'pr-12'}`}>
+              <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-cyan-400 transition-colors">
+                <div class="mb-2">
+                  <h3 class="text-xl font-bold text-white">{experience.role}</h3>
+                  <h4 class="text-cyan-400">{experience.company}</h4>
+                  <p class="text-gray-400 text-sm">{experience.period}</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        
-        {/* SDET */}
-        <div class="flex items-center mb-24 flex-row-reverse" data-aos="fade-left">
-          <!-- Timeline node -->
-          <div class="w-1/2 flex justify-center">
-            <div class="ironman-container group relative">
-              <div class="ironman-circle w-48 h-48 rounded-full overflow-hidden border-4 border-cyan-400 transition-all duration-300 group-hover:border-red-500 group-hover:glow">
-                <img 
-                  src="/images/placeholder-ironman-2.svg" 
-                  alt="SDET at Previous Company"
-                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              </div>
-              <div class="absolute inset-0 bg-gradient-radial from-transparent to-cyan-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
-              <div class="absolute -inset-2 bg-cyan-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
-            </div>
-          </div>
-          
-          <!-- Content -->
-          <div class="w-1/2 pr-12">
-            <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-cyan-400 transition-colors">
-              <div class="mb-2">
-                <h3 class="text-xl font-bold text-white">SDET</h3>
-                <h4 class="text-cyan-400">Previous Company</h4>
-                <p class="text-gray-400 text-sm">2021 - 2023</p>
-              </div>
-              <div class="text-gray-300">
-                <p class="mb-2">• Developed and maintained automated test frameworks using Selenium and Appium</p>
-                <p class="mb-2">• Improved test coverage by 60% through strategic test automation</p>
-                <p class="mb-2">• Implemented performance testing solutions using JMeter</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* QA Engineer */}
-        <div class="flex items-center mb-24 flex-row" data-aos="fade-right">
-          <!-- Timeline node -->
-          <div class="w-1/2 flex justify-center">
-            <div class="ironman-container group relative">
-              <div class="ironman-circle w-48 h-48 rounded-full overflow-hidden border-4 border-cyan-400 transition-all duration-300 group-hover:border-red-500 group-hover:glow">
-                <img 
-                  src="/images/placeholder-ironman-3.svg" 
-                  alt="QA Engineer at First Company"
-                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              </div>
-              <div class="absolute inset-0 bg-gradient-radial from-transparent to-cyan-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
-              <div class="absolute -inset-2 bg-cyan-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
-            </div>
-          </div>
-          
-          <!-- Content -->
-          <div class="w-1/2 pl-12">
-            <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-cyan-400 transition-colors">
-              <div class="mb-2">
-                <h3 class="text-xl font-bold text-white">QA Engineer</h3>
-                <h4 class="text-cyan-400">First Company</h4>
-                <p class="text-gray-400 text-sm">2019 - 2021</p>
-              </div>
-              <div class="text-gray-300">
-                <p class="mb-2">• Conducted manual and automated testing for web applications</p>
-                <p class="mb-2">• Created test plans and test cases for new features</p>
-                <p class="mb-2">• Collaborated with developers to improve product quality</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        ))}
         
         {/* Engineering Education */}
         <div class="flex items-center" data-aos="fade-left">
           <div class="w-1/2 flex justify-center">
             <div class="ironman-container group relative">
-              <div class="ironman-circle w-48 h-48 rounded-full overflow-hidden border-4 border-cyan-400 transition-all duration-300 group-hover:border-red-500 group-hover:glow">
+              <div class="ironman-card w-64 h-80 rounded-xl overflow-hidden border-4 border-cyan-400 transition-all duration-300 group-hover:border-red-500 group-hover:glow">
                 <img 
-                  src="/images/placeholder-ironman-education.svg" 
+                  src="/PersonalWebsite/images/zero.png" 
                   alt="Engineering Education"
-                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  class="w-full h-full object-contain bg-gray-900 p-2 transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-              <div class="absolute inset-0 bg-gradient-radial from-transparent to-cyan-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
-              <div class="absolute -inset-2 bg-cyan-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
+              <div class="absolute inset-0 bg-gradient-radial from-transparent to-cyan-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+              <div class="absolute -inset-2 bg-cyan-500/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
             </div>
           </div>
           
           <div class="w-1/2 pl-12">
             <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-cyan-400 transition-colors">
               <div class="mb-2">
-                <h3 class="text-xl font-bold text-white">BE ENGINEERING</h3>
-                <h4 class="text-cyan-400">Computer Science</h4>
-                <p class="text-gray-400 text-sm">2015 - 2019</p>
-              </div>
-              <div class="text-gray-300">
-                <p class="mb-2">• Bachelor's degree in Computer Science and Engineering</p>
-                <p class="mb-2">• Specialized in software testing and quality assurance</p>
-                <p class="mb-2">• Graduated with honors</p>
+                <h3 class="text-xl font-bold text-white">{education.role}</h3>
+                <h4 class="text-cyan-400">{education.company}</h4>
+                <p class="text-gray-400 text-sm">{education.period}</p>
               </div>
             </div>
           </div>

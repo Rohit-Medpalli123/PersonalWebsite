@@ -1,40 +1,18 @@
 ---
+import { getEntry } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 
-// Hardcoded experience data
-const experiences = [
-  {
-    company: "Current Company",
-    role: "Senior SDET",
-    period: "2023 - Present",
-    description: `- Led end-to-end test automation initiatives for web and mobile applications
-- Implemented CI/CD pipelines reducing deployment time by 40%
-- Mentored junior team members in test automation best practices`
-  },
-  {
-    company: "Previous Company",
-    role: "SDET",
-    period: "2021 - 2023",
-    description: `- Developed and maintained automated test frameworks using Selenium and Appium
-- Improved test coverage by 60% through strategic test automation
-- Implemented performance testing solutions using JMeter`
-  },
-  {
-    company: "First Company",
-    role: "QA Engineer",
-    period: "2019 - 2021",
-    description: `- Conducted manual and automated testing for web applications
-- Created test plans and test cases for new features
-- Collaborated with developers to improve product quality`
-  }
-]
+const experienceEntry = await getEntry('experience', 'experience');
+const { experiences, education } = experienceEntry.data;
 
-// Define placeholder images for Iron Man theme
-const ironManImages = [
-  '/images/placeholder-ironman-1.svg',
-  '/images/placeholder-ironman-2.svg',
-  '/images/placeholder-ironman-3.svg',
+// Define images for career timeline
+export const ironManImages = [
+  '/images/first.png',    // Intern QA Engineer
+  '/images/second.png',   // QA Engineer
+  '/images/third.png',    // Senior Software Test Engineer
+  '/images/fourth.png',   // Lead Software Test Engineer
 ];
+
 ---
 
 <Layout title="Experience - SDET Portfolio">
@@ -52,15 +30,15 @@ const ironManImages = [
           <!-- Timeline node -->
           <div class="w-1/2 flex justify-center">
             <div class="ironman-container group relative">
-              <div class="ironman-circle w-48 h-48 rounded-full overflow-hidden border-4 border-cyan-400 transition-all duration-300 group-hover:border-red-500 group-hover:glow">
+              <div class="ironman-card w-64 h-80 rounded-xl overflow-hidden border-4 border-cyan-400 transition-all duration-300 group-hover:border-red-500 group-hover:glow">
                 <img 
-                  src={ironManImages[index % ironManImages.length]} 
+                  src={`/PersonalWebsite${ironManImages[index % ironManImages.length]}`} 
                   alt={`${experience.role} at ${experience.company}`}
-                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  class="w-full h-full object-contain bg-gray-900 p-2 transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-              <div class="absolute inset-0 bg-gradient-radial from-transparent to-cyan-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
-              <div class="absolute -inset-2 bg-cyan-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
+              <div class="absolute inset-0 bg-gradient-radial from-transparent to-cyan-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+              <div class="absolute -inset-2 bg-cyan-500/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
             </div>
           </div>
           
@@ -72,11 +50,6 @@ const ironManImages = [
                 <h4 class="text-cyan-400">{experience.company}</h4>
                 <p class="text-gray-400 text-sm">{experience.period}</p>
               </div>
-              <div class="text-gray-300">
-                {experience.description.split('\n').map((item) => (
-                  item.trim() && <p class="mb-2">{item.replace('- ', '• ')}</p>
-                ))}
-              </div>
             </div>
           </div>
         </div>
@@ -86,29 +59,24 @@ const ironManImages = [
       <div class="flex items-center">
         <div class="w-1/2 flex justify-center">
           <div class="ironman-container group relative">
-            <div class="ironman-circle w-48 h-48 rounded-full overflow-hidden border-4 border-cyan-400 transition-all duration-300 group-hover:border-red-500 group-hover:glow">
+            <div class="ironman-card w-64 h-80 rounded-xl overflow-hidden border-4 border-cyan-400 transition-all duration-300 group-hover:border-red-500 group-hover:glow">
               <img 
-                src="/images/placeholder-ironman-education.svg" 
+                src="/PersonalWebsite/images/zero.png" 
                 alt="Engineering Education"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                class="w-full h-full object-contain bg-gray-900 p-2 transition-transform duration-500 group-hover:scale-105"
               />
             </div>
-            <div class="absolute inset-0 bg-gradient-radial from-transparent to-cyan-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
-            <div class="absolute -inset-2 bg-cyan-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
+            <div class="absolute inset-0 bg-gradient-radial from-transparent to-cyan-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+            <div class="absolute -inset-2 bg-cyan-500/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
           </div>
         </div>
         
         <div class="w-1/2 pl-12">
           <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-cyan-400 transition-colors">
             <div class="mb-2">
-              <h3 class="text-xl font-bold text-white">BE ENGINEERING</h3>
-              <h4 class="text-cyan-400">Computer Science</h4>
-              <p class="text-gray-400 text-sm">2015 - 2019</p>
-            </div>
-            <div class="text-gray-300">
-              <p class="mb-2">• Bachelor's degree in Computer Science and Engineering</p>
-              <p class="mb-2">• Specialized in software testing and quality assurance</p>
-              <p class="mb-2">• Graduated with honors</p>
+              <h3 class="text-xl font-bold text-white">{education.role}</h3>
+              <h4 class="text-cyan-400">{education.company}</h4>
+              <p class="text-gray-400 text-sm">{education.period}</p>
             </div>
           </div>
         </div>

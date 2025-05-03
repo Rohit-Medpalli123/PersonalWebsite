@@ -1,0 +1,49 @@
+{
+  "$ref": "#/definitions/investigations",
+  "definitions": {
+    "investigations": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "investigations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "link": {
+                "type": "string"
+              },
+              "image": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "description",
+              "link",
+              "image"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "investigations"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
