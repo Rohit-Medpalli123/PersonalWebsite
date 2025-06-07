@@ -1,0 +1,272 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="description" content="SDET Portfolio - Software Testing & Development"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/PersonalWebsite/favicon.svg"><meta name="generator" content="Astro v5.7.5"><title>Building a Robust API Test Automation Framework with Python - Rohit Medpalli</title><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/PersonalWebsite/_astro/ClientRouter.astro_astro_type_script_index_0_lang.BZs-2RF_.js"></script><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"><script src="https://unpkg.com/aos@next/dist/aos.js" defer></script><script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script><script type="module">document.addEventListener("astro:page-load",()=>{particlesJS("particles-js",{particles:{number:{value:80,density:{enable:!0,value_area:800}},color:{value:"#3182ce"},shape:{type:"circle"},opacity:{value:.5,random:!1},size:{value:3,random:!0},line_linked:{enable:!0,distance:150,color:"#3182ce",opacity:.2,width:1},move:{enable:!0,speed:2,direction:"none",random:!1,straight:!1,out_mode:"out",bounce:!1}},interactivity:{detect_on:"window",events:{onhover:{enable:!0,mode:"repulse"},resize:!0},modes:{repulse:{distance:100,duration:.4}}},retina_detect:!0})});</script><link rel="stylesheet" href="/PersonalWebsite/_astro/blog._cmbnTZ3.css"></head> <body class="bg-gray-900 text-gray-100 font-mono relative"> <div id="particles-js" class="fixed inset-0 z-0 pointer-events-none"></div> <script type="module">document.addEventListener("astro:page-load",()=>{AOS.init({duration:800,once:!0,offset:100})});</script> <nav class="fixed w-full bg-gray-800 border-b border-gray-700 z-50"> <div class="container mx-auto px-4 py-3"> <div class="flex justify-between items-center"> <a href="/PersonalWebsite/" class="text-xl font-bold hover:text-cyan-400 transition-colors"> <span class="text-cyan-400">&gt;</span> Portfolio
+</a> <div class="space-x-6"> <a href="/PersonalWebsite/" class="hover:text-cyan-400 transition-colors">Home</a> <a href="/PersonalWebsite/projects" class="hover:text-cyan-400 transition-colors">Projects</a> <a href="/PersonalWebsite/blog" class="hover:text-cyan-400 transition-colors">Blog</a> <a href="/PersonalWebsite/contact" class="hover:text-cyan-400 transition-colors">Contact</a> </div> </div> </div> </nav> <main class="pt-16">  <main class="container mx-auto px-4 py-8"> <div class="max-w-4xl mx-auto"> <a href="/projects" class="text-cyan-400 hover:text-cyan-300 mb-8 inline-block">← Back to Projects</a> <article class="prose prose-invert prose-headings:text-white prose-h1:text-4xl prose-h2:text-2xl prose-h3:text-xl prose-p:text-gray-300 prose-a:text-cyan-400 hover:prose-a:text-cyan-300 prose-strong:text-white prose-code:text-cyan-300 prose-pre:bg-gray-900 prose-pre:border prose-pre:border-gray-800 prose-pre:rounded-xl max-w-none"> <div class="mb-8 not-prose"> <img src="/PersonalWebsite/images/projects/automation.webp" alt="Test Automation Framework" class="rounded-xl w-full"> </div> <div class="flex flex-wrap gap-2 mb-8 not-prose"> <span class="px-3 py-1 bg-cyan-400/10 text-cyan-400 rounded-full text-sm"> Selenium WebDriver </span><span class="px-3 py-1 bg-cyan-400/10 text-cyan-400 rounded-full text-sm"> TestNG </span><span class="px-3 py-1 bg-cyan-400/10 text-cyan-400 rounded-full text-sm"> Java </span><span class="px-3 py-1 bg-cyan-400/10 text-cyan-400 rounded-full text-sm"> Maven </span><span class="px-3 py-1 bg-cyan-400/10 text-cyan-400 rounded-full text-sm"> Jenkins </span><span class="px-3 py-1 bg-cyan-400/10 text-cyan-400 rounded-full text-sm"> Allure Reports </span> </div> <div class="flex gap-4 mb-8 not-prose"> <a href="https://github.com/yourusername/test-automation-framework" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path> </svg>
+View on GitHub
+</a>  </div> <h1 id="-building-a-robust-api-test-automation-framework-with-python">🚀 Building a Robust API Test Automation Framework with Python</h1>
+<h2 id="-introduction">🎯 Introduction</h2>
+<p>Hey there, fellow automation enthusiasts! 👋 Ready to dive into something exciting? Today, I’m going to walk you through our super-cool API testing framework that we’ve built using Python. It’s like having a Swiss Army knife for API testing - versatile, reliable, and surprisingly elegant!</p>
+<h2 id="-whats-in-it-for-you">🎮 What’s in it for You?</h2>
+<p>Before we dive deep, here’s what you’re going to get:</p>
+<ol>
+<li>🏗️ A rock-solid, maintainable testing framework</li>
+<li>📝 Beautiful logging that actually makes sense</li>
+<li>🌍 Support for all your environments (staging, prod, UAT)</li>
+<li>✨ Super easy test case creation</li>
+<li>📊 Test results that tell a story</li>
+</ol>
+<h2 id="-architecture-overview">🏰 Architecture Overview</h2>
+<p>Think of our framework as a well-organized castle, where each component has its specific role:</p>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>+------------------+</span></span>
+<span class="line"><span>|  🧪 Test Cases   |</span></span>
+<span class="line"><span>+--------+---------+</span></span>
+<span class="line"><span>         |</span></span>
+<span class="line"><span>+--------v---------+     +----------------+</span></span>
+<span class="line"><span>|  🎮 API Player   |     |    📊 Results  |</span></span>
+<span class="line"><span>| (The Commander)  |     |    Tracking    |</span></span>
+<span class="line"><span>+--------+---------+     +----------------+</span></span>
+<span class="line"><span>         |</span></span>
+<span class="line"><span>+--------v---------+</span></span>
+<span class="line"><span>|  🔌 Endpoints    |</span></span>
+<span class="line"><span>|  (The Workers)   |</span></span>
+<span class="line"><span>+--------+---------+</span></span>
+<span class="line"><span>         |</span></span>
+<span class="line"><span>+--------v---------+</span></span>
+<span class="line"><span>|  🌐 Requests     |</span></span>
+<span class="line"><span>|  (The Messenger) |</span></span>
+<span class="line"><span>+------------------+</span></span></code></pre>
+<h2 id="-meet-the-dream-team">🎮 Meet the Dream Team</h2>
+<h3 id="1--the-commander-api-player-coreapi_playerpy">1. 🎯 The Commander: API Player (Core/api_player.py)</h3>
+<p>Meet our superstar - the APIPlayer class! Think of it as the commander of our API testing army. It knows what needs to be done and orchestrates everything beautifully:</p>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">class</span><span style="color:#8BE9FD"> APIPlayer</span><span style="color:#F8F8F2">(</span><span style="color:#8BE9FD;font-style:italic">Results</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#6272A4">    """The mastermind behind all API operations 🧠"""</span></span>
+<span class="line"><span style="color:#F8F8F2">    </span></span>
+<span class="line"><span style="color:#FF79C6">    def</span><span style="color:#BD93F9"> __init__</span><span style="color:#F8F8F2">(</span><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">url</span><span style="color:#FF79C6">:</span><span style="color:#8BE9FD;font-style:italic"> str</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">log_file_path</span><span style="color:#FF79C6">:</span><span style="color:#F8F8F2"> Optional[</span><span style="color:#8BE9FD;font-style:italic">str</span><span style="color:#F8F8F2">] </span><span style="color:#FF79C6">=</span><span style="color:#BD93F9"> None</span><span style="color:#F8F8F2">, </span></span>
+<span class="line"><span style="color:#FFB86C;font-style:italic">                 environment</span><span style="color:#FF79C6">:</span><span style="color:#8BE9FD;font-style:italic"> str</span><span style="color:#FF79C6"> =</span><span style="color:#E9F284"> "</span><span style="color:#F1FA8C">staging</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#6272A4">        # First, let's set up our result tracking superpowers!</span></span>
+<span class="line"><span style="color:#8BE9FD;font-style:italic">        super</span><span style="color:#F8F8F2">().</span><span style="color:#BD93F9">__init__</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">log_file_path</span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2">log_file_path)</span></span>
+<span class="line"><span style="color:#F8F8F2">        </span></span>
+<span class="line"><span style="color:#6272A4">        # Which battlefield are we on? 🌍</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">        self</span><span style="color:#F8F8F2">.environment </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> environment</span></span>
+<span class="line"><span style="color:#F8F8F2">        </span></span>
+<span class="line"><span style="color:#6272A4">        # Assemble our specialized teams 🚗 👥 📝</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">        self</span><span style="color:#F8F8F2">.cars_api </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> CarsAPIEndpoints(url)      </span><span style="color:#6272A4"># For all things cars</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">        self</span><span style="color:#F8F8F2">.users_api </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> UserAPIEndpoints(url)      </span><span style="color:#6272A4"># Managing our users</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">        self</span><span style="color:#F8F8F2">.registration_api </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> RegistrationAPIEndpoints(url)  </span><span style="color:#6272A4"># Handling registrations</span></span></code></pre>
+<h3 id="2--the-scorekeeper-results-tracking-utilsresultspy">2. 📈 The Scorekeeper: Results Tracking (Utils/results.py)</h3>
+<p>Meet our meticulous scorekeeper! This little genius keeps track of everything that happens in our tests:</p>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">class</span><span style="color:#8BE9FD"> Results</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#6272A4">    """Your friendly neighborhood test tracker 📊"""</span></span>
+<span class="line"><span style="color:#F8F8F2">    </span></span>
+<span class="line"><span style="color:#FF79C6">    def</span><span style="color:#BD93F9"> __init__</span><span style="color:#F8F8F2">(</span><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">log_file_path</span><span style="color:#FF79C6">:</span><span style="color:#F8F8F2"> Optional[</span><span style="color:#8BE9FD;font-style:italic">str</span><span style="color:#F8F8F2">] </span><span style="color:#FF79C6">=</span><span style="color:#BD93F9"> None</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#6272A4">        # Get our trusty logger ready 📖</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">        self</span><span style="color:#F8F8F2">.logger </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> get_logger(</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">results</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">)</span></span>
+<span class="line"><span style="color:#F8F8F2">        </span></span>
+<span class="line"><span style="color:#6272A4">        # Initialize our scoreboard 🏆</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">        self</span><span style="color:#F8F8F2">.total </span><span style="color:#FF79C6">=</span><span style="color:#BD93F9"> 0</span><span style="color:#6272A4">      # Total battles fought</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">        self</span><span style="color:#F8F8F2">.passed </span><span style="color:#FF79C6">=</span><span style="color:#BD93F9"> 0</span><span style="color:#6272A4">      # Victories achieved</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">        self</span><span style="color:#F8F8F2">.failures </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> []   </span><span style="color:#6272A4"># Lessons learned 📝</span></span></code></pre>
+<h3 id="3--the-specialists-endpoint-classes">3. 🔌 The Specialists: Endpoint Classes</h3>
+<p>Here come our API specialists! Each one is an expert in their domain:</p>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">class</span><span style="color:#8BE9FD"> CarsAPIEndpoints</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#6272A4">    """Your gateway to the world of cars 🚗"""</span></span>
+<span class="line"><span style="color:#FF79C6">    def</span><span style="color:#BD93F9"> __init__</span><span style="color:#F8F8F2">(</span><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">base_url</span><span style="color:#FF79C6">:</span><span style="color:#8BE9FD;font-style:italic"> str</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#6272A4">        # Set up our command center 🏬</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">        self</span><span style="color:#F8F8F2">.base_url </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> base_url</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">        self</span><span style="color:#F8F8F2">.logger </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> get_logger(</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">CarsAPI</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    def</span><span style="color:#50FA7B"> get_cars</span><span style="color:#F8F8F2">(</span><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">headers</span><span style="color:#FF79C6">:</span><span style="color:#F8F8F2"> Dict[</span><span style="color:#8BE9FD;font-style:italic">str</span><span style="color:#F8F8F2">, </span><span style="color:#8BE9FD;font-style:italic">str</span><span style="color:#F8F8F2">]) </span><span style="color:#FF79C6">-></span><span style="color:#F8F8F2"> Response:</span></span>
+<span class="line"><span style="color:#6272A4">        """Fetch our amazing car collection 🚘"""</span></span>
+<span class="line"><span style="color:#F8F8F2">        url </span><span style="color:#FF79C6">=</span><span style="color:#FF79C6"> f</span><span style="color:#F1FA8C">"</span><span style="color:#BD93F9">{</span><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">.base_url</span><span style="color:#BD93F9">}</span><span style="color:#F1FA8C">/cars"</span></span>
+<span class="line"><span style="color:#FF79C6">        return</span><span style="color:#F8F8F2"> requests.get(url, </span><span style="color:#FFB86C;font-style:italic">headers</span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2">headers)</span></span></code></pre>
+<h2 id="-awesome-features">✨ Awesome Features</h2>
+<h3 id="1--environment-mastery">1. 🌍 Environment Mastery</h3>
+<p>We’ve got all your environments covered! Switch between them as easily as changing TV channels:</p>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F8F8F2">parser.addoption(</span></span>
+<span class="line"><span style="color:#E9F284">    "</span><span style="color:#F1FA8C">--env</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">,</span></span>
+<span class="line"><span style="color:#FFB86C;font-style:italic">    default</span><span style="color:#FF79C6">=</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">staging</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">,      </span><span style="color:#6272A4"># Your cozy testing playground</span></span>
+<span class="line"><span style="color:#FFB86C;font-style:italic">    choices</span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2">[</span></span>
+<span class="line"><span style="color:#E9F284">        "</span><span style="color:#F1FA8C">staging</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">,          </span><span style="color:#6272A4"># 🧰 Safe space for experiments</span></span>
+<span class="line"><span style="color:#E9F284">        "</span><span style="color:#F1FA8C">prod</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">,            </span><span style="color:#6272A4"># 🏛 The real deal</span></span>
+<span class="line"><span style="color:#E9F284">        "</span><span style="color:#F1FA8C">uat</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">,             </span><span style="color:#6272A4"># 🕵️ Where users try to break things</span></span>
+<span class="line"><span style="color:#F8F8F2">    ],</span></span>
+<span class="line"><span style="color:#FFB86C;font-style:italic">    help</span><span style="color:#FF79C6">=</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">Pick your battlefield!</span><span style="color:#E9F284">"</span></span>
+<span class="line"><span style="color:#F8F8F2">)</span></span></code></pre>
+<h3 id="2--story-telling-logs">2. 📖 Story-Telling Logs</h3>
+<p>Our logs are not just logs - they tell a story! Each operation is a new adventure:</p>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">.logger.info(</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">🔔 Starting a new car quest!</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">)</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">.logger.info(</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">📡 Sending our request to the Cars Kingdom</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">)</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">.logger.info(</span><span style="color:#FF79C6">f</span><span style="color:#F1FA8C">"🎉 Victory! Got response with status: </span><span style="color:#BD93F9">{</span><span style="color:#F8F8F2">response.status_code</span><span style="color:#BD93F9">}</span><span style="color:#F1FA8C">"</span><span style="color:#F8F8F2">)</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">.logger.error(</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">🚨 Oops! Something went wrong with our request</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">)</span></span></code></pre>
+<h3 id="3--victory-tracking">3. 🏆 Victory Tracking</h3>
+<p>We celebrate every win and learn from every challenge:</p>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> success</span><span style="color:#F8F8F2">(</span><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">message</span><span style="color:#FF79C6">:</span><span style="color:#8BE9FD;font-style:italic"> str</span><span style="color:#F8F8F2">) </span><span style="color:#FF79C6">-></span><span style="color:#BD93F9"> None</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#6272A4">    """Celebrate another victory! 🎉"""</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">    self</span><span style="color:#F8F8F2">.logger.info(</span><span style="color:#FF79C6">f</span><span style="color:#F1FA8C">"🟢 VICTORY: </span><span style="color:#BD93F9">{</span><span style="color:#F8F8F2">message</span><span style="color:#BD93F9">}</span><span style="color:#F1FA8C">"</span><span style="color:#F8F8F2">)</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">    self</span><span style="color:#F8F8F2">.total </span><span style="color:#FF79C6">+=</span><span style="color:#BD93F9"> 1</span><span style="color:#6272A4">     # Another battle fought</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">    self</span><span style="color:#F8F8F2">.passed </span><span style="color:#FF79C6">+=</span><span style="color:#BD93F9"> 1</span><span style="color:#6272A4">    # Another victory achieved!</span></span>
+<span class="line"><span style="color:#F8F8F2">    </span></span>
+<span class="line"><span style="color:#FF79C6">    if</span><span style="color:#BD93F9;font-style:italic"> self</span><span style="color:#F8F8F2">.passed </span><span style="color:#FF79C6">%</span><span style="color:#BD93F9"> 10</span><span style="color:#FF79C6"> ==</span><span style="color:#BD93F9"> 0</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">        self</span><span style="color:#F8F8F2">.logger.info(</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">🎁 Achievement unlocked: 10 tests passed!</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">)</span></span></code></pre>
+<h3 id="4-️-beautiful-reports">4. 🎟️ Beautiful Reports</h3>
+<p>We don’t just run tests - we create masterpieces! Check out our beautiful HTML reports:</p>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F8F8F2">config._metadata </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> {</span></span>
+<span class="line"><span style="color:#E9F284">    '</span><span style="color:#F1FA8C">Project Name</span><span style="color:#E9F284">'</span><span style="color:#F8F8F2">: </span><span style="color:#E9F284">'</span><span style="color:#F1FA8C">🚗 Cars API Testing</span><span style="color:#E9F284">'</span><span style="color:#F8F8F2">,</span></span>
+<span class="line"><span style="color:#E9F284">    '</span><span style="color:#F1FA8C">Environment</span><span style="color:#E9F284">'</span><span style="color:#F8F8F2">: </span><span style="color:#FF79C6">f</span><span style="color:#F1FA8C">"🏛 </span><span style="color:#BD93F9">{</span><span style="color:#F8F8F2">config.option.env.upper()</span><span style="color:#BD93F9">}</span><span style="color:#F1FA8C">"</span><span style="color:#F8F8F2">,</span></span>
+<span class="line"><span style="color:#E9F284">    '</span><span style="color:#F1FA8C">Test Hero</span><span style="color:#E9F284">'</span><span style="color:#F8F8F2">: os.getenv(</span><span style="color:#E9F284">'</span><span style="color:#F1FA8C">USER</span><span style="color:#E9F284">'</span><span style="color:#F8F8F2">, </span><span style="color:#E9F284">'</span><span style="color:#F1FA8C">Mystery Tester</span><span style="color:#E9F284">'</span><span style="color:#F8F8F2">),</span></span>
+<span class="line"><span style="color:#E9F284">    '</span><span style="color:#F1FA8C">Powered By</span><span style="color:#E9F284">'</span><span style="color:#F8F8F2">: </span><span style="color:#FF79C6">f</span><span style="color:#F1FA8C">"Python </span><span style="color:#BD93F9">{</span><span style="color:#F8F8F2">sys.version.split()[</span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">]</span><span style="color:#BD93F9">}</span><span style="color:#F1FA8C"> 🐍"</span><span style="color:#F8F8F2">,</span></span>
+<span class="line"><span style="color:#E9F284">    '</span><span style="color:#F1FA8C">Quest Started</span><span style="color:#E9F284">'</span><span style="color:#F8F8F2">: datetime.now().strftime(</span><span style="color:#E9F284">'</span><span style="color:#F1FA8C">%Y-%m-</span><span style="color:#BD93F9">%d</span><span style="color:#F1FA8C"> %H:%M:%S</span><span style="color:#E9F284">'</span><span style="color:#F8F8F2">)</span></span>
+<span class="line"><span style="color:#F8F8F2">}</span></span></code></pre>
+<h2 id="-best-practices---our-royal-decrees">👑 Best Practices - Our Royal Decrees</h2>
+<ol>
+<li>
+<p><strong>📚 Clean Code is King</strong></p>
+<ul>
+<li>🎉 Every class has its own castle (separation of concerns)</li>
+<li>👑 Object-oriented design rules our kingdom</li>
+<li>🌟 Type hints light the way for future explorers</li>
+</ul>
+</li>
+<li>
+<p><strong>🛡️ Error Handling - Our Shield</strong></p>
+<ul>
+<li>🏹 Custom exceptions for precise targeting</li>
+<li>💬 Clear error messages that even dragons understand</li>
+<li>🎯 Status codes are always validated</li>
+</ul>
+</li>
+<li>
+<p><strong>🏆 Test Results - Our Chronicles</strong></p>
+<ul>
+<li>📈 Automatic tracking of every quest</li>
+<li>📖 Detailed reports of our adventures</li>
+<li>⏱️ Performance metrics for the speed demons</li>
+</ul>
+</li>
+<li>
+<p><strong>⚙️ Configuration - Our Master Plan</strong></p>
+<ul>
+<li>🌍 Each environment gets its perfect setup</li>
+<li>🎮 Easy controls through pytest options</li>
+<li>📖 Logs that tell epic tales</li>
+</ul>
+</li>
+</ol>
+<h2 id="-lets-write-some-epic-tests">🎮 Let’s Write Some Epic Tests!</h2>
+<p>Here’s how we embark on a quest to add a new car to our collection:</p>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> test_add_new_tesla</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">api_player</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#6272A4">    """Quest: Add a shiny new Tesla to our collection 🚗⚡"""</span></span>
+<span class="line"><span style="color:#6272A4">    # First, let's get our VIP pass 🎟️</span></span>
+<span class="line"><span style="color:#F8F8F2">    auth_details </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> api_player.set_auth_details(</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">hero</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">, </span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">secret_spell</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">)</span></span>
+<span class="line"><span style="color:#F8F8F2">    </span></span>
+<span class="line"><span style="color:#6272A4">    # Prepare our new Tesla for the grand entrance 🚘</span></span>
+<span class="line"><span style="color:#F8F8F2">    car_details </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> {</span></span>
+<span class="line"><span style="color:#E9F284">        "</span><span style="color:#F1FA8C">name</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">: </span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">Model 3</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">,</span></span>
+<span class="line"><span style="color:#E9F284">        "</span><span style="color:#F1FA8C">brand</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">: </span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">Tesla</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">,</span></span>
+<span class="line"><span style="color:#E9F284">        "</span><span style="color:#F1FA8C">year</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">: </span><span style="color:#BD93F9">2023</span><span style="color:#F8F8F2">,</span></span>
+<span class="line"><span style="color:#E9F284">        "</span><span style="color:#F1FA8C">features</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">: [</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">autopilot</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">, </span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">ludicrous_mode</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">] 🚀</span></span>
+<span class="line"><span style="color:#F8F8F2">    }</span></span>
+<span class="line"><span style="color:#F8F8F2">    </span></span>
+<span class="line"><span style="color:#6272A4">    # Time to add our electric beauty! ⚡</span></span>
+<span class="line"><span style="color:#F8F8F2">    success, response </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> api_player.add_car(</span></span>
+<span class="line"><span style="color:#FFB86C;font-style:italic">        car_details</span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2">car_details,</span></span>
+<span class="line"><span style="color:#FFB86C;font-style:italic">        auth_details</span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2">auth_details</span></span>
+<span class="line"><span style="color:#F8F8F2">    )</span></span>
+<span class="line"><span style="color:#F8F8F2">    </span></span>
+<span class="line"><span style="color:#6272A4">    # Let's check if our mission was successful 🎯</span></span>
+<span class="line"><span style="color:#FF79C6">    assert</span><span style="color:#F8F8F2"> success, </span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">🚨 Oh no! Our Tesla couldn't join the party!</span><span style="color:#E9F284">"</span></span>
+<span class="line"><span style="color:#FF79C6">    assert</span><span style="color:#F8F8F2"> response[</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">status</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">] </span><span style="color:#FF79C6">==</span><span style="color:#E9F284"> "</span><span style="color:#F1FA8C">success</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">, </span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">😵 Something's not right with our Tesla!</span><span style="color:#E9F284">"</span></span>
+<span class="line"><span style="color:#F8F8F2">    </span></span>
+<span class="line"><span style="color:#6272A4">    # Celebrate our victory! 🎉</span></span>
+<span class="line"><span style="color:#8BE9FD">    print</span><span style="color:#F8F8F2">(</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">🎉 Woohoo! Tesla has joined our awesome car collection!</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">)</span></span></code></pre>
+<h2 id="-cool-technical-stuff">🤓 Cool Technical Stuff</h2>
+<h3 id="1-️-smart-error-detection">1. 🕵️ Smart Error Detection</h3>
+<p>We’ve got your back with intelligent error handling:</p>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> validate_response</span><span style="color:#F8F8F2">(</span><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">response</span><span style="color:#FF79C6">:</span><span style="color:#F8F8F2"> Response) </span><span style="color:#FF79C6">-></span><span style="color:#F8F8F2"> Tuple[</span><span style="color:#8BE9FD;font-style:italic">bool</span><span style="color:#F8F8F2">, </span><span style="color:#8BE9FD;font-style:italic">str</span><span style="color:#F8F8F2">]:</span></span>
+<span class="line"><span style="color:#6272A4">    """Our magical response checker 🔮"""</span></span>
+<span class="line"><span style="color:#F8F8F2">    status_code </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> response.status_code</span></span>
+<span class="line"><span style="color:#F8F8F2">    result_flag </span><span style="color:#FF79C6">=</span><span style="color:#BD93F9"> False</span></span>
+<span class="line"><span style="color:#F8F8F2">    </span></span>
+<span class="line"><span style="color:#6272A4">    # Time to decode what the API is telling us 🔍</span></span>
+<span class="line"><span style="color:#F8F8F2">    error_messages </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> {</span></span>
+<span class="line"><span style="color:#BD93F9">        200</span><span style="color:#F8F8F2">: </span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">🎉 All good! Operation successful!</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">,</span></span>
+<span class="line"><span style="color:#BD93F9">        401</span><span style="color:#F8F8F2">: </span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">🔒 Oops! Looks like you forgot your magic key!</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">,</span></span>
+<span class="line"><span style="color:#BD93F9">        403</span><span style="color:#F8F8F2">: </span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">🚫 Sorry, this area is for VIPs only!</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">,</span></span>
+<span class="line"><span style="color:#BD93F9">        404</span><span style="color:#F8F8F2">: </span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">🔍 Hmm... We looked everywhere but couldn't find it!</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">,</span></span>
+<span class="line"><span style="color:#BD93F9">        500</span><span style="color:#F8F8F2">: </span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">💥 The server had a little accident...</span><span style="color:#E9F284">"</span></span>
+<span class="line"><span style="color:#F8F8F2">    }</span></span>
+<span class="line"><span style="color:#F8F8F2">    </span></span>
+<span class="line"><span style="color:#F8F8F2">    msg </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> error_messages.get(status_code, </span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">🤔 Something unexpected happened!</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">)</span></span>
+<span class="line"><span style="color:#FF79C6">    if</span><span style="color:#F8F8F2"> status_code </span><span style="color:#FF79C6">==</span><span style="color:#BD93F9"> 200</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#F8F8F2">        result_flag </span><span style="color:#FF79C6">=</span><span style="color:#BD93F9"> True</span></span>
+<span class="line"><span style="color:#F8F8F2">    </span></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> result_flag, msg</span></span></code></pre>
+<h3 id="2--magic-decorators">2. 🌈 Magic Decorators</h3>
+<p>Our special spells (decorators) make life easier:</p>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> log_operation</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">operation_name</span><span style="color:#FF79C6">:</span><span style="color:#8BE9FD;font-style:italic"> str</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#6272A4">    """Adds some sparkle to our operations ✨"""</span></span>
+<span class="line"><span style="color:#FF79C6">    def</span><span style="color:#50FA7B"> decorator</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">func</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#FF79C6">        def</span><span style="color:#50FA7B"> wrapper</span><span style="color:#F8F8F2">(</span><span style="color:#FF79C6">*</span><span style="color:#FFB86C;font-style:italic">args</span><span style="color:#F8F8F2">, </span><span style="color:#FF79C6">**</span><span style="color:#FFB86C;font-style:italic">kwargs</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#F8F8F2">            logger </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> get_logger(</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">Magic</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">)</span></span>
+<span class="line"><span style="color:#F8F8F2">            logger.info(</span><span style="color:#FF79C6">f</span><span style="color:#F1FA8C">"🌟 Starting: </span><span style="color:#BD93F9">{</span><span style="color:#F8F8F2">operation_name</span><span style="color:#BD93F9">}</span><span style="color:#F1FA8C">"</span><span style="color:#F8F8F2">)</span></span>
+<span class="line"><span style="color:#FF79C6">            try</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#F8F8F2">                result </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> func(</span><span style="color:#FF79C6">*</span><span style="color:#F8F8F2">args, </span><span style="color:#FF79C6">**</span><span style="color:#F8F8F2">kwargs)</span></span>
+<span class="line"><span style="color:#F8F8F2">                logger.info(</span><span style="color:#FF79C6">f</span><span style="color:#F1FA8C">"🎉 Success: </span><span style="color:#BD93F9">{</span><span style="color:#F8F8F2">operation_name</span><span style="color:#BD93F9">}</span><span style="color:#F1FA8C">"</span><span style="color:#F8F8F2">)</span></span>
+<span class="line"><span style="color:#FF79C6">                return</span><span style="color:#F8F8F2"> result</span></span>
+<span class="line"><span style="color:#FF79C6">            except</span><span style="color:#8BE9FD;font-style:italic"> Exception</span><span style="color:#FF79C6"> as</span><span style="color:#F8F8F2"> e:</span></span>
+<span class="line"><span style="color:#F8F8F2">                logger.error(</span><span style="color:#FF79C6">f</span><span style="color:#F1FA8C">"💥 Oops! </span><span style="color:#BD93F9">{</span><span style="color:#F8F8F2">operation_name</span><span style="color:#BD93F9">}</span><span style="color:#F1FA8C"> failed: </span><span style="color:#BD93F9">{</span><span style="color:#8BE9FD;font-style:italic">str</span><span style="color:#F8F8F2">(e)</span><span style="color:#BD93F9">}</span><span style="color:#F1FA8C">"</span><span style="color:#F8F8F2">)</span></span>
+<span class="line"><span style="color:#FF79C6">                raise</span></span>
+<span class="line"><span style="color:#FF79C6">        return</span><span style="color:#F8F8F2"> wrapper</span></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> decorator</span></span></code></pre>
+<h2 id="-coming-soon-to-our-kingdom">📍 Coming Soon to Our Kingdom!</h2>
+<ol>
+<li>
+<p><strong>🔥 Async Powers</strong></p>
+<ul>
+<li>🌀 Tornado-fast parallel testing</li>
+<li>🏃 Run tests at lightning speed</li>
+<li>🚀 Handle multiple requests like a boss</li>
+</ul>
+</li>
+<li>
+<p><strong>📈 Performance Wizardry</strong></p>
+<ul>
+<li>🏃 Load testing that’ll blow your mind</li>
+<li>⏱️ Response time tracking to the microsecond</li>
+<li>📆 Beautiful performance dashboards</li>
+</ul>
+</li>
+<li>
+<p><strong>🔍 Contract Testing Magic</strong></p>
+<ul>
+<li>📖 OpenAPI validation spells</li>
+<li>🧪 Schema verification potions</li>
+<li>🔐 Ironclad contract enforcement</li>
+</ul>
+</li>
+<li>
+<p><strong>🔒 Security Fortress</strong></p>
+<ul>
+<li>🛡️ Fort Knox-level authentication tests</li>
+<li>👮 Authorization checkpoints</li>
+<li>🔓 Security headers that even hackers respect</li>
+</ul>
+</li>
+</ol>
+<h2 id="-the-grand-finale">🌟 The Grand Finale</h2>
+<p>There you have it, fellow adventurers! 🚀 Our API testing framework is like a well-oiled machine (with a bit of magic sprinkled on top ✨). Here’s what makes it awesome:</p>
+<ul>
+<li>🎉 Write tests that are fun and easy to read</li>
+<li>📊 Track your victories with style</li>
+<li>🌍 Switch environments like a ninja</li>
+<li>📖 Get reports that tell epic stories</li>
+<li>🤓 Smart error handling that speaks human</li>
+</ul>
+<p>Remember: Testing doesn’t have to be boring! With our framework, every test is an adventure, every bug is a dragon to slay, and every passing test suite is a victory to celebrate! 🎉</p>
+<h2 id="-legendary-scrolls-references">📖 Legendary Scrolls (References)</h2>
+<ol>
+<li><a href="https://docs.python-requests.org/">📡 The Python Requests Spellbook</a></li>
+<li><a href="https://docs.pytest.org/">🔮 The Pytest Chronicles</a></li>
+<li><a href="https://www.qasymphony.com/blog/api-testing-best-practices/">📙 The API Testing Wisdom Scrolls</a></li>
+<li><a href="https://docs.python.org/3/library/typing.html">🔍 Python Type Hints Grimoire</a></li>
+<li><a href="https://restfulapi.net/">🌐 RESTful API Design Legends</a></li>
+</ol>
+<p>Now go forth and test with style! 🌟✨</p> </article> </div> </main>  </main> <footer class="bg-gray-800 mt-20 py-6 text-center"> <p class="text-gray-400">© 2025 • Built with Astro</p> </footer> </body></html>

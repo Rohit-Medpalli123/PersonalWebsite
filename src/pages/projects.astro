@@ -1,93 +1,72 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+// Get all projects and sort by completion date
+const projects = (await getCollection('projects'))
+  .sort((a, b) => b.data.completed.valueOf() - a.data.completed.valueOf());
+
+// Group projects by category
+const projectsByCategory = projects.reduce((acc, project) => {
+  const category = project.data.category;
+  if (!acc[category]) acc[category] = [];
+  acc[category].push(project);
+  return acc;
+}, {} as Record<string, typeof projects>);
+
+// Category labels
+const categoryLabels = {
+  automation: 'Test Automation',
+  testing: 'Testing Solutions',
+  development: 'Development Projects'
+};
 ---
 
-<Layout title="SDET Portfolio - Projects">
-  <div class="container mx-auto px-4 py-12">
-    <h1 class="text-4xl font-bold mb-12 text-center">
-      <span class="text-cyan-400">&gt;</span> Project Archives
+<Layout title="Projects - Rohit Medpalli">
+  <main class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold mb-12 text-center relative">
+      <span class="text-cyan-400 inline-block transform hover:scale-110 transition-transform">#</span> Projects
+      <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-600"></div>
     </h1>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <!-- Project 1 -->
-      <div class="bg-gray-800 rounded-lg overflow-hidden border border-gray-700 hover:border-cyan-400 transition-colors">
-        <div class="p-6">
-          <h3 class="text-2xl font-bold mb-3">E-commerce Test Automation Suite</h3>
-          <p class="text-gray-400 mb-4">
-            Developed a robust Selenium-based framework for an e-commerce platform, achieving 80% test coverage
-            and reducing regression testing time by 60%. Implemented CI/CD pipeline integration.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-cyan-900 text-cyan-300 px-3 py-1 rounded-full text-sm">Selenium</span>
-            <span class="bg-cyan-900 text-cyan-300 px-3 py-1 rounded-full text-sm">Java</span>
-            <span class="bg-cyan-900 text-cyan-300 px-3 py-1 rounded-full text-sm">TestNG</span>
-            <span class="bg-cyan-900 text-cyan-300 px-3 py-1 rounded-full text-sm">Jenkins</span>
-          </div>
-          <a href="#" class="text-cyan-400 hover:text-cyan-300 inline-flex items-center">
-            View Details →
-          </a>
-        </div>
-      </div>
 
-      <!-- Project 2 -->
-      <div class="bg-gray-800 rounded-lg overflow-hidden border border-gray-700 hover:border-cyan-400 transition-colors">
-        <div class="p-6">
-          <h3 class="text-2xl font-bold mb-3">Mobile App Testing Framework</h3>
-          <p class="text-gray-400 mb-4">
-            Created an Appium-based framework for cross-platform mobile testing, supporting both iOS and Android.
-            Implemented parallel test execution and cloud device integration.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-cyan-900 text-cyan-300 px-3 py-1 rounded-full text-sm">Appium</span>
-            <span class="bg-cyan-900 text-cyan-300 px-3 py-1 rounded-full text-sm">Java</span>
-            <span class="bg-cyan-900 text-cyan-300 px-3 py-1 rounded-full text-sm">TestNG</span>
-            <span class="bg-cyan-900 text-cyan-300 px-3 py-1 rounded-full text-sm">BrowserStack</span>
-          </div>
-          <a href="#" class="text-cyan-400 hover:text-cyan-300 inline-flex items-center">
-            View Details →
-          </a>
+    {Object.entries(projectsByCategory).map(([category, categoryProjects]) => (
+      <div class="mb-16 last:mb-0">
+        <h2 class="text-2xl font-bold mb-8 text-cyan-400">{categoryLabels[category]}</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {categoryProjects.map((project) => (
+            <a href={`/projects/${project.slug}`} class="group relative block">
+              <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl blur opacity-25 group-hover:opacity-40 transition-opacity"></div>
+              <div class="relative bg-gray-900 p-8 rounded-xl border border-gray-800 hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-500/10">
+                <h3 class="text-xl font-bold mb-3 text-white">{project.data.title}</h3>
+                <p class="text-gray-300 mb-6">{project.data.description}</p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  {project.data.technologies.map((tech) => (
+                    <span class="px-3 py-1 bg-cyan-400/10 text-cyan-400 rounded-full text-sm">{tech}</span>
+                  ))}
+                </div>
+                <div class="flex space-x-4">
+                  {project.data.github && (
+                    <span 
+                      class="text-cyan-400 hover:text-cyan-300 transition-colors"
+                      onclick="window.open('{project.data.github}', '_blank'); event.stopPropagation();"
+                    >
+                      View on GitHub →
+                    </span>
+                  )}
+                  {project.data.demo && (
+                    <span 
+                      class="text-cyan-400 hover:text-cyan-300 transition-colors"
+                      onclick="window.open('{project.data.demo}', '_blank'); event.stopPropagation();"
+                    >
+                      Live Demo →
+                    </span>
+                  )}
+                </div>
+              </div>
+            </a>
+          ))}
         </div>
       </div>
-
-      <!-- Project 3 -->
-      <div class="bg-gray-800 rounded-lg overflow-hidden border border-gray-700 hover:border-cyan-400 transition-colors">
-        <div class="p-6">
-          <h3 class="text-2xl font-bold mb-3">Performance Testing & Monitoring</h3>
-          <p class="text-gray-400 mb-4">
-            Implemented comprehensive performance testing strategy using JMeter and Grafana.
-            Achieved 40% improvement in application response time through optimization recommendations.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-cyan-900 text-cyan-300 px-3 py-1 rounded-full text-sm">JMeter</span>
-            <span class="bg-cyan-900 text-cyan-300 px-3 py-1 rounded-full text-sm">Grafana</span>
-            <span class="bg-cyan-900 text-cyan-300 px-3 py-1 rounded-full text-sm">Docker</span>
-            <span class="bg-cyan-900 text-cyan-300 px-3 py-1 rounded-full text-sm">AWS</span>
-          </div>
-          <a href="#" class="text-cyan-400 hover:text-cyan-300 inline-flex items-center">
-            View Details →
-          </a>
-        </div>
-      </div>
-
-      <!-- Project 4 -->
-      <div class="bg-gray-800 rounded-lg overflow-hidden border border-gray-700 hover:border-cyan-400 transition-colors">
-        <div class="p-6">
-          <h3 class="text-2xl font-bold mb-3">API Automation Framework</h3>
-          <p class="text-gray-400 mb-4">
-            Designed and implemented a scalable API testing framework using RestAssured and TestNG.
-            Integrated with CI/CD pipeline and achieved 90% API test coverage.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-cyan-900 text-cyan-300 px-3 py-1 rounded-full text-sm">RestAssured</span>
-            <span class="bg-cyan-900 text-cyan-300 px-3 py-1 rounded-full text-sm">Java</span>
-            <span class="bg-cyan-900 text-cyan-300 px-3 py-1 rounded-full text-sm">TestNG</span>
-            <span class="bg-cyan-900 text-cyan-300 px-3 py-1 rounded-full text-sm">Postman</span>
-          </div>
-          <a href="#" class="text-cyan-400 hover:text-cyan-300 inline-flex items-center">
-            View Details →
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
+    ))}
+  </main>
 </Layout>

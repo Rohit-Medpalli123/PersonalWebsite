@@ -46,9 +46,29 @@ const skillsCollection = defineCollection({
   })
 });
 
+// Define the schema for projects
+const projectsCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    image: z.object({
+      url: z.string(),
+      alt: z.string()
+    }),
+    technologies: z.array(z.string()),
+    github: z.string().optional(),
+    demo: z.string().optional(),
+    featured: z.boolean().default(false),
+    completed: z.date(),
+    category: z.enum(['automation', 'testing', 'development']),
+  })
+});
+
 // Export the collections
 export const collections = {
   'blog': blogCollection,
   'experience': experienceCollection,
   'skills': skillsCollection,
+  'projects': projectsCollection,
 };
