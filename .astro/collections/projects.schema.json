@@ -26,11 +26,41 @@
           ],
           "additionalProperties": false
         },
-        "technologies": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+        "techStack": {
+          "type": "object",
+          "properties": {
+            "language": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "framework": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reporting": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "cicd": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "language",
+            "framework",
+            "reporting",
+            "cicd"
+          ],
+          "additionalProperties": false
         },
         "github": {
           "type": "string"
@@ -73,8 +103,7 @@
       "required": [
         "title",
         "description",
-        "image",
-        "technologies",
+        "techStack",
         "completed",
         "category"
       ],

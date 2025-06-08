@@ -1,17 +1,17 @@
 ---
 title: "Building a Robust API Test Automation Framework with Python"
-description: "A comprehensive end-to-end test automation framework built with Selenium WebDriver and TestNG, featuring parallel execution, detailed reporting, and CI/CD integration."
-image:
-  url: "/PersonalWebsite/images/projects/automation.webp"
-  alt: "Test Automation Framework"
-technologies:
-  - "Selenium WebDriver"
-  - "TestNG"
-  - "Java"
-  - "Maven"
-  - "Jenkins"
-  - "Allure Reports"
-github: "https://github.com/yourusername/test-automation-framework"
+description: "A comprehensive API test automation framework built with Python, leveraging Pytest and Requests libraries for efficient testing, with Allure reporting and Jenkins CI/CD integration."
+techStack:
+  language:
+    - "Python"
+  framework:
+    - "Pytest"
+    - "Requests"
+  reporting:
+    - "Allure Reports"
+  cicd:
+    - "Jenkins"
+github: "https://github.com/Rohit-Medpalli123/ApiFramework"
 featured: true
 completed: 2024-12-15
 category: "automation"

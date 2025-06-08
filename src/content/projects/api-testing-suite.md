@@ -2,16 +2,20 @@
 title: API Testing Suite
 description: A comprehensive API testing framework built with RestAssured and TestNG, featuring data-driven testing, environment management, and detailed reporting capabilities.
 image:
-  url: /PersonalWebsite/images/projects/api-testing.webp
+  url: /PersonalWebsite/images/projects/api-testing.png
   alt: API Testing Suite
-technologies:
-  - RestAssured
-  - TestNG
-  - Java
-  - Maven
-  - Postman
-  - Newman
-github: https://github.com/yourusername/api-testing-suite
+techStack:
+  language:
+    - "Java"
+  framework:
+    - "RestAssured"
+    - "TestNG"
+    - "Maven"
+  reporting:
+    - "Allure Reports"
+  cicd:
+    - "Jenkins"
+github: "https://github.com/Rohit-Medpalli123/ApiFramework"
 featured: false
 completed: 2024-11-01
 category: testing

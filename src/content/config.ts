@@ -55,8 +55,13 @@ const projectsCollection = defineCollection({
     image: z.object({
       url: z.string(),
       alt: z.string()
+    }).optional(),
+    techStack: z.object({
+      language: z.array(z.string()),
+      framework: z.array(z.string()),
+      reporting: z.array(z.string()),
+      cicd: z.array(z.string())
     }),
-    technologies: z.array(z.string()),
     github: z.string().optional(),
     demo: z.string().optional(),
     featured: z.boolean().default(false),
